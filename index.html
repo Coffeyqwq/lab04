@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>小蔡 · 个人作品集</title>
   <meta name="description" content="软件工程专业学生小蔡的个人作品集：微信小程序、Web 全栈、数据可视化与 AI 应用项目。">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <script>
+    // 提前读取本地主题设置，避免深色用户刷新时出现浅色闪烁
+    (function () {
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("portfolio-theme") === "dark" ? "dark" : "light";
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -22,10 +31,22 @@
         <a class="nav-link" href="#contact" data-section="contact">联系方式</a>
       </nav>
 
-      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
-        <span></span>
-        <span></span>
-      </button>
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="切换到深色主题" title="切换深浅色主题">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2"/>
+            <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3 19 19M19 5l-1.7 1.7M6.7 17.3 5 19"/>
+          </svg>
+        </button>
+
+        <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -112,7 +133,7 @@
     <span>用原生 HTML / CSS / JS 手工搭建</span>
   </footer>
 
-  <script src="js/data.js?v=3"></script>
-  <script src="js/main.js?v=3"></script>
+  <script src="js/data.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>

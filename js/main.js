@@ -4,6 +4,7 @@
  *  2. 渲染技能列表与联系方式
  *  3. 导航交互：移动端菜单、滚动高亮、滚动时头部描边
  *  4. 项目区块进入视口时的轻微浮现动画
+ *  5. 深浅色主题切换，选择通过 localStorage 记忆
  * ============================================================ */
 
 (function () {
@@ -232,6 +233,38 @@
     els.forEach((el) => io.observe(el));
   }
 
+  /* ---------- 主题切换 ---------- */
+
+  const THEME_KEY = "portfolio-theme";
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    const btn = document.getElementById("theme-toggle");
+    if (btn) {
+      const dark = theme === "dark";
+      btn.setAttribute("aria-pressed", String(dark));
+      btn.setAttribute("aria-label", dark ? "切换到浅色主题" : "切换到深色主题");
+    }
+  }
+
+  function setupTheme() {
+    const btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+
+    // 与 head 内初始化脚本保持一致（兜底）
+    applyTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
+
+    btn.addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(next);
+      try {
+        localStorage.setItem(THEME_KEY, next);
+      } catch (e) {
+        /* 隐私模式等场景下 localStorage 不可用时静默降级 */
+      }
+    });
+  }
+
   /* ---------- 启动 ---------- */
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -240,5 +273,6 @@
     renderContact();
     setupNav();
     setupReveal();
+    setupTheme();
   });
 })();

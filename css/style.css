@@ -21,12 +21,37 @@
   --cat-data: #8c3fa8;
   --cat-ai: #e2491b;
 
+  /* 主题相关补充变量 */
+  --header-bg: rgba(250, 247, 241, 0.88);
+  --cover-text: #faf7f1;
+  --cover-border: rgba(250, 247, 241, 0.32);
+
   --serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", SimSun, serif;
   --sans: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
   --mono: "JetBrains Mono", Consolas, "Courier New", monospace;
 
   --header-h: 72px;
   --pad-x: clamp(20px, 5vw, 72px);
+}
+
+/* ---------- 深色主题 ---------- */
+[data-theme="dark"] {
+  --paper: #1a1814;
+  --paper-2: #242019;
+  --ink: #ece7dc;
+  --ink-2: #a89e8c;
+  --ink-3: #cfc6b4;
+  --line: rgba(236, 231, 220, 0.16);
+  --line-strong: #ece7dc;
+  --accent: #f0552a;
+
+  --header-bg: rgba(26, 24, 20, 0.88);
+
+  /* 分类标签文字在深色下适当提亮（不影响文字封面底色） */
+  --cat-miniapp: #4fb28a;
+  --cat-web: #7d9dff;
+  --cat-data: #c889de;
+  --cat-ai: #f0552a;
 }
 
 /* ---------- 基础 ---------- */
@@ -47,6 +72,7 @@ body {
   color: var(--ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 img {
@@ -73,11 +99,11 @@ ul {
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  background: rgba(250, 247, 241, 0.88);
+  background: var(--header-bg);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .site-header.is-scrolled {
@@ -150,6 +176,55 @@ ul {
   font-size: 0.6rem;
   color: var(--accent);
   margin-left: 3px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.theme-toggle:active {
+  transform: scale(0.92);
+}
+
+.theme-toggle svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* 浅色时显示月亮（点击切深色），深色时显示太阳 */
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
 }
 
 .nav-toggle {
@@ -372,7 +447,7 @@ body.menu-open .nav-toggle span:nth-child(2) {
   justify-content: space-between;
   gap: 14px;
   padding: clamp(22px, 4vw, 48px);
-  color: var(--paper);
+  color: var(--cover-text);
   overflow: hidden;
 }
 
@@ -380,7 +455,7 @@ body.menu-open .nav-toggle span:nth-child(2) {
   content: "";
   position: absolute;
   inset: 12px;
-  border: 1px solid rgba(250, 247, 241, 0.32);
+  border: 1px solid var(--cover-border);
   pointer-events: none;
 }
 
