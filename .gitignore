@@ -1,0 +1,24 @@
+# 系统临时文件
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 编辑器/IDE 临时文件
+*.swp
+*~
+*.bak
+*.tmp
+*.log
+
+# Trae 本地缓存与历史（保留项目规则目录）
+.trae/*
+!.trae/rules/
+
+# 前端工具链（如将来引入构建工具）
+node_modules/
+dist/
+.cache/
+
+# 本地环境变量
+.env
+.env.local

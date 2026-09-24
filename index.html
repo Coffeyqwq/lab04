@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小蔡 · 个人作品集</title>
+  <meta name="description" content="软件工程专业学生小蔡的个人作品集：微信小程序、Web 全栈、数据可视化与 AI 应用项目。">
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-cn">小蔡</span>
+        <span class="brand-en">PORTFOLIO © 2026</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="主导航">
+        <a class="nav-link" href="#works" data-section="works">精选作品<sup id="works-count" aria-hidden="true"></sup></a>
+        <a class="nav-link" href="#about" data-section="about">关于我</a>
+        <a class="nav-link" href="#contact" data-section="contact">联系方式</a>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="打开菜单">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 首屏：杂志封面式个人介绍 -->
+    <section class="hero" id="hero">
+      <div class="masthead">
+        <span>个人作品集 · 2026</span>
+        <span class="masthead-role">软件工程 / AI 辅助开发 · 大语言模型应用</span>
+        <span class="masthead-loc">中国 · 广州</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="line">从一行代码</span>
+        <span class="line line-2">到<em>AI 应用</em></span>
+      </h1>
+
+      <div class="hero-foot">
+        <p class="hero-intro">
+          我是小蔡，软件工程专业在读，目前主要关注 AI 辅助开发与大语言模型技术。平时使用
+          Python、Java 和 TypeScript 进行项目开发，也在持续学习前后端开发、数据可视化和 AI
+          应用构建。这里收录了我近期完成的四个项目。
+        </p>
+        <a class="hero-scroll" href="#works">向下浏览<span class="arrow">↓</span></a>
+      </div>
+    </section>
+
+    <!-- 项目作品：杂志编辑式排版，由 JS 渲染 -->
+    <section class="works section" id="works">
+      <header class="section-head">
+        <span class="section-no">01</span>
+        <h2 class="section-title">精选作品</h2>
+        <span class="section-en">Selected Works</span>
+      </header>
+      <div id="project-list"><!-- 项目由 main.js 根据 data.js 渲染 --></div>
+    </section>
+
+    <!-- 关于我 -->
+    <section class="about section" id="about">
+      <header class="section-head">
+        <span class="section-no">02</span>
+        <h2 class="section-title">关于我</h2>
+        <span class="section-en">About Me</span>
+      </header>
+
+      <div class="about-grid">
+        <aside class="about-side">
+          <p class="about-quote">「 从需求到上线<br>独立完成 」</p>
+        </aside>
+
+        <div class="about-main">
+          <p>
+            我是小蔡，广州软件学院软件工程专业在读。平时主要使用 Python、Java 和 TypeScript
+            进行项目开发，也在持续学习前后端开发、数据可视化和 AI 应用构建。
+          </p>
+          <p>
+            目前我的关注点是 AI 辅助开发与大语言模型应用——如何让模型真正服务于学习与日常场景。
+            页面中的四个项目，分别对应小程序、Web 平台、可视化大屏与 AI 应用四种形态。
+          </p>
+
+          <ul class="skill-list" id="skill-list"><!-- 技能由 main.js 渲染 --></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="contact section" id="contact">
+      <header class="section-head">
+        <span class="section-no">03</span>
+        <h2 class="section-title">联系方式</h2>
+        <span class="section-en">Contact</span>
+      </header>
+
+      <p class="contact-lead">欢迎交流项目与技术，<br>或任何有趣的想法。</p>
+      <a class="contact-mail" id="contact-mail" href="mailto:">…</a>
+      <ul class="contact-list" id="contact-list"></ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 小蔡</span>
+    <span>用原生 HTML / CSS / JS 手工搭建</span>
+  </footer>
+
+  <script src="js/data.js?v=3"></script>
+  <script src="js/main.js?v=3"></script>
+</body>
+</html>
